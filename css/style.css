@@ -197,3 +197,8 @@ footer .nav-o a {
     margin-left: auto !important;
   }
 }
+
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
