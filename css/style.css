@@ -183,9 +183,11 @@ footer .nav-o a {
     margin-right: auto;
     margin-left: auto;
   }
+}
 
-  .contact > a {
-    display: block;
+@media (max-width: 810px) {
+  .contact a {
+    display: block !important;
     margin-bottom: 2px;
   }
 }
