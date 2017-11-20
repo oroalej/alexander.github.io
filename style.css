@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500');
+@import url('https://fonts.googleapis.com/css?family=Rubik:400');
+/* Formating */
+@import url();
+
+html, body, footer{
+  font-family: 'Quicksand', sans-serif;
+  height: 100%;
+  text-align: center;
+}
+
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.col {
+  float: left;
+  width: 33.33%;
+}
+
+a {
+  text-decoration: none !important;
+}
+/* Nav */
+ul li {
+  list-style: none;
+}
+
+section {
+  margin: 25px 0;
+}
+
+header {
+  background-color: white;
+  height: 70px;
+  width: 100%;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+}
+
+nav.nav-o{
+  width: 80%;
+  margin: 0 auto;
+}
+
+nav a {
+  margin-top: 25px;
+  padding: 0px 20px 0px 20px;
+  float: right;
+  text-decoration: none;
+  color: #666;
+  -webkit-transition: margin 0.2s ease;
+	-moz-transition: margin 0.2s ease;
+	transition: margin 0.2s ease;
+}
+
+nav a:hover {
+  color: #666;
+  margin-top: 20px;
+}
+
+/* Body */
+.alex {
+  margin-top: 70px;
+  padding: 80px;
+  background-color: #4A89AA;
+  height: 440px;
+  color: #E7DACB;
+}
+
+.avatar {
+  width: 120px;
+  border-radius: 50%;
+  margin: 30px;
+}
+.alex h1 {
+  font-size: 27px;
+}
+h1 > span {
+  display: block;
+  font-size: 15px !important;
+  font-weight: 300;
+  padding-top: 10px;
+}
+
+
+.social-media {
+  margin: 20px 0;
+}
+
+.social-media a {
+  padding: 0 8px;
+  color: #E7DACB;
+}
+
+.alex .social-media:hover a {
+  color: #C4B9AD;
+}
+
+.alex .social-media a:hover {
+  color: #E7DACB !important;
+}
+/* Footer Style */
+
+footer {
+  height: 20px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+
+.footer-upper {
+  padding: 50px 0;
+}
+.footer-upper p {
+  padding-bottom: 20px;
+  margin-top: 5px;
+}
+
+.email-button{
+  text-decoration: none;
+  border-radius: 20px;
+  border: 2px solid #21374B;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  color: #21374B;
+  padding: 20px 60px;
+  font-weight: 400;
+  font-family: 'Rubik', sans-serif;
+}
+
+.email-button:hover {
+  background-color: #444948;
+  color: white;
+  border: 2px solid #444948;
+}
+.footer-lower {
+  background-color: #21374B;
+  padding: 12px 0;
+  color: white !important;
+}
+
+.footer-lower a {
+  color: inherit;
+}
+
+.links a{
+  display: block;
+  text-decoration: none;
+}
+
+.copyright {
+  font-size: 12px;
+  margin-top: 25px;
+}
+
+footer nav a {
+  float: none;
+}
+
+footer p {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+footer .contact a {
+  padding-right: 30px;
+  font-size: 14px !important;
+}
+
+footer .contact {
+  margin-top: 30px;
+
+}
+
+footer .nav-o {
+  margin-top: 25px;
+}
+
+footer .nav-o a {
+  font-size: 14px !important;
+}
+
+
+@media (max-width: 645px) {
+  nav.navbar{
+    width: 100%;
+    margin-right: 5%;
+  }
+
+}
