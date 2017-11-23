@@ -199,10 +199,10 @@ footer .nav-o a {
   overflow-x:hidden;
 }
 
-.card{
-  width: 30rem !important
+.card {
   border: 1px solid rgba(0,0,0,.125);
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .card-img-top {
