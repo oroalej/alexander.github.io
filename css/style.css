@@ -31,15 +31,15 @@ nav a {
   padding: 0px 20px 0px 20px;
   float: right;
   text-decoration: none;
-  color: #E7DACB;
-  -webkit-transition: margin 0.2s ease;
-	-moz-transition: margin 0.2s ease;
-	transition: margin 0.2s ease;
+  color: #fff;
+  -webkit-transition: margin 0.3s ease;
+	-moz-transition: margin 0.3s ease;
+	transition: margin 0.3s ease;
   font-weight: 500;
 }
 
 nav a:hover {
-  color: #000;
+  color: #fff;
   margin-top: 20px;
 }
 
@@ -68,7 +68,7 @@ h1 > span {
 
 
 .social-media {
-  margin: 20px 0;
+  margin-top: 20px
 }
 
 .social-media a {
@@ -84,15 +84,6 @@ h1 > span {
   color: #E7DACB !important;
 }
 /* Footer Style */
-
-footer {
-  height: 20px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-}
-
 .footer-upper {
   padding: 50px 0;
 }
@@ -118,13 +109,13 @@ footer {
 
 .email-button:hover {
   background-color: #444948;
-  color: #666;
+  color: #fff;
   border: 2px solid #444948;
 }
 .footer-lower {
-  background-color: #21374B;
+  background-color: #4A89AA;
   padding: 12px 0;
-  color: #666 !important;
+  color: #fff;
 }
 
 .footer-lower a {
@@ -167,6 +158,7 @@ footer .nav-o {
 footer .nav-o a {
   font-size: 14px !important;
 }
+
 @media (max-width: 576px) {
   ul.navbar-nav  a {
     padding: 0px 10px 0px 10px !important;
@@ -203,6 +195,17 @@ footer .nav-o a {
   }
 }
 
-.container-fluid, html {
+.container-fluid, html, footer {
   overflow-x:hidden;
+}
+
+.card{
+  width: 30rem !important
+  border: 1px solid rgba(0,0,0,.125);
+  margin-bottom: 20px;
+}
+
+.card-img-top {
+  height: 100%;
+  overflow-y: hidden;
 }
