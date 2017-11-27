@@ -2,28 +2,70 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:400');
 /* Formating */
 
-html, body, footer{
+html{
   font-family: 'Quicksand', sans-serif;
-  height: 100%;
   text-align: center;
 }
 
-.container-fluid {
-  padding-left: 0px;
-  padding-right: 0px;
+body { margin: 0; }
+
+.contact {
+  font-size: 15px;
+  display: grid;
+  margin: 5px auto;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 5px;
+  grid-template-areas:
+  "address"
+  "phone"
+  "email"
 }
 
-.clearfix {
-  clear: both;
+.alex {
+  padding: 80px 0;
+  background-color: #4A89AA;
+  height: 550px;
+  color: #E7DACB;
 }
 
-a {
-  text-decoration: none !important;
+.experience {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-gap: 1em;
+  grid-template-areas:
+    "one"
+    "two"
+    "three"
 }
-/* Nav */
-header {
-  background-color: white;
+
+.card {
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.card-img-top {
   width: 100%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin-bottom: 0.75rem;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
 }
 
 nav a {
@@ -38,27 +80,89 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover {
-  color: #fff;
-  margin-top: 20px;
-}
-
-/* Body */
-.alex {
-  padding: 80px 0;
-  background-color: #4A89AA;
-  height: 550px;
-  color: #E7DACB;
-}
-
 .avatar {
   width: 120px;
   border-radius: 50%;
-  margin: 70px auto 30px auto ;
+  margin: 70px auto 30px auto;
 }
-.alex h1 {
-  font-size: 27px;
+
+.one { grid-area: one; }
+.two { grid-area: two; }
+.three { grid-area: three; }
+.phone { grid-area: phone; }
+.email { grid-area: email; }
+.address { grid-area: address; text-align: center;}
+.navigation {grid-area: navigation; }
+
+.hide-xs {
+  display: none !important;
 }
+
+@media (min-width: 576px) {
+  .hide-xs {
+    display: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+    "address"
+    "phone"
+    "email"
+  }
+
+  .experience {
+    grid-template-columns: repeat(2, 46%);
+    grid-template-rows: auto auto;
+    justify-content: center;
+    grid-template-areas:
+      "one three"
+      "two three"
+  }
+
+  header nav {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .contact {
+    margin: 12px auto;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "address phone email"
+  }
+}
+
+@media (min-width: 1200px) {
+  .experience {
+    grid-template-columns: repeat(2, 40%);
+  }
+
+  header nav {
+    margin-right: 10%;
+  }
+}
+
+.social-media a {
+  padding: 0 8px;
+  color: #E7DACB;
+}
+
+a { text-decoration: none !important; }
+footer p { margin-bottom: 5px; }
+nav a:hover { margin-top: 20px; }
+.alex h1 { font-size: 27px; }
+.footer-lower a{ color: #fff !important; }
+.social-media { margin-top: 20px }
+
 h1 > span {
   display: block;
   font-size: 15px !important;
@@ -67,14 +171,6 @@ h1 > span {
 }
 
 
-.social-media {
-  margin-top: 20px
-}
-
-.social-media a {
-  padding: 0 8px;
-  color: #E7DACB;
-}
 
 .alex .social-media:hover a {
   color: #C4B9AD;
@@ -118,10 +214,6 @@ h1 > span {
   color: #fff;
 }
 
-.footer-lower a {
-  color: inherit;
-}
-
 .links a{
   display: block;
   text-decoration: none;
@@ -136,73 +228,7 @@ footer nav a {
   float: none;
 }
 
-footer p {
-  margin-bottom: 5px;
-  font-size: 12px;
-}
-
-footer .contact a {
-  padding-right: 30px;
-  font-size: 14px !important;
-}
-
-footer .contact {
-  margin-top: 30px;
-
-}
-
 footer nav a {
   font-size: 14px !important;
   padding: 0 13px;
-}
-
-@media (max-width: 576px) {
-  ul.navbar-nav  a {
-    padding: 0px 10px 0px 10px !important;
-    font-size: 14px;
-  }
-
-  .sm-hidden {
-    display: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  nav.navbar {
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-  }
-
-  ul.navbar-nav {
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-@media (max-width: 810px) {
-  .contact a {
-    display: block !important;
-    margin-bottom: 2px;
-  }
-}
-
-@media (min-width: 768px) {
-  ul.navbar-nav {
-    margin-left: auto !important;
-  }
-}
-
-.container-fluid, html, footer {
-  overflow-x:hidden;
-}
-
-.card {
-  border: 1px solid rgba(0,0,0,.125);
-  margin-bottom: 25px;
-  margin-top: 25px;
-}
-
-.card-img-top {
-  height: 100%;
-  overflow-y: hidden;
 }
