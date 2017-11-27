@@ -45,7 +45,7 @@ nav a:hover {
 
 /* Body */
 .alex {
-  padding: 80px;
+  padding: 80px 0;
   background-color: #4A89AA;
   height: 550px;
   color: #E7DACB;
@@ -151,12 +151,9 @@ footer .contact {
 
 }
 
-footer .nav-o {
-  margin-top: 25px;
-}
-
-footer .nav-o a {
+footer nav a {
   font-size: 14px !important;
+  padding: 0 13px;
 }
 
 @media (max-width: 576px) {
