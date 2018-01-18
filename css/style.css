@@ -8,7 +8,6 @@ html{
 }
 
 body { margin: 0; }
-
 .contact {
   font-size: 15px;
   display: grid;
@@ -25,8 +24,9 @@ body { margin: 0; }
 .alex {
   padding: 80px 0;
   background-color: #4A89AA;
-  height: 550px;
+  height: 570px;
   color: #E7DACB;
+  margin-top: -55px;
 }
 
 .experience {
@@ -68,16 +68,33 @@ body { margin: 0; }
   margin-bottom: 0;
 }
 
+nav {
+  margin: 0 auto;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: block;
+}
+
+nav > ul > li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
 nav a {
-  margin-top: 25px;
-  padding: 0px 20px 0px 20px;
-  float: right;
   text-decoration: none;
   color: #fff;
-  -webkit-transition: margin 0.3s ease;
-	-moz-transition: margin 0.3s ease;
-	transition: margin 0.3s ease;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 18px !important;
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .avatar {
@@ -95,16 +112,20 @@ nav a {
 .navigation {grid-area: navigation; }
 
 .hide-xs {
-  display: none !important;
+  display: none;
 }
 
 @media (min-width: 576px) {
   .hide-xs {
-    display: auto;
+    display: inline-block;
   }
 }
 
 @media (min-width: 768px) {
+  header nav {
+    text-align: right !important;
+  }
+
   .contact {
     width: 900px;
     margin-left: auto;
@@ -146,9 +167,9 @@ nav a {
     grid-template-columns: repeat(2, 40%);
   }
 
-  header nav {
+  /*header nav {
     margin-right: 10%;
-  }
+  }*/
 }
 
 .social-media a {
@@ -158,7 +179,6 @@ nav a {
 
 a { text-decoration: none !important; }
 footer p { margin-bottom: 5px; }
-nav a:hover { margin-top: 20px; }
 .alex h1 { font-size: 27px; }
 .footer-lower a{ color: #fff !important; }
 .social-media { margin-top: 20px }
@@ -169,8 +189,6 @@ h1 > span {
   font-weight: 300;
   padding-top: 10px;
 }
-
-
 
 .alex .social-media:hover a {
   color: #C4B9AD;
