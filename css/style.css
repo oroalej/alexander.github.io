@@ -124,6 +124,7 @@ nav a:hover {
 @media (min-width: 768px) {
   header nav {
     text-align: right !important;
+    margin-right: 5% !important;
   }
 
   nav > ul > li {
