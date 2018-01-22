@@ -26,7 +26,6 @@ body { margin: 0; }
   background-color: #4A89AA;
   height: 500px;
   color: #E7DACB;
-  margin-top: -55px;
 }
 
 .experience {
@@ -71,11 +70,24 @@ body { margin: 0; }
 nav {
   margin: 0 auto;
   text-align: center;
+  position: fixed;
+  width: 100%;
+  padding-top: 8px;
+  transition: all .4s;
+  background-color: #4A89AA;
+}
+
+nav.scrolled {
+  opacity: .8;
+  padding-top: 0px;
+}
+
+nav:hover {
+  opacity: 1;
 }
 
 nav ul {
   list-style: none;
-  display: block;
 }
 
 nav > ul > li {
@@ -94,7 +106,7 @@ nav a {
 }
 
 nav a:hover {
-  color: rgba(0, 0, 0, 0.5);
+  color: #E7DACB;
 }
 
 .avatar {
@@ -124,16 +136,20 @@ nav a:hover {
 @media (min-width: 768px) {
   header nav {
     text-align: right !important;
+  }
+
+  nav ul {
     margin-right: 5% !important;
   }
 
   nav > ul > li {
-    display: inline-block;
-    padding: 0 25px;
+    padding: 0 13px;
   }
+
   nav a {
-    font-size: 18px !important;
+    font-size: 17px !important;
   }
+
   .contact {
     width: 900px;
     margin-left: auto;
@@ -153,10 +169,6 @@ nav a:hover {
     grid-template-areas:
       "one three"
       "two three"
-  }
-
-  header nav {
-    margin-right: 0;
   }
 }
 
