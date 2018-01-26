@@ -69,37 +69,6 @@ h1 {
 //   max-width: 100%;
 // }
 
-nav {
-  margin: 0 auto;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  padding-top: 8px;
-  transition: all .4s;
-
-  a {
-    text-decoration: none;
-    color: #E4E4E7;
-    font-weight: 400;
-    font-size: 14px;
-    -webkit-transition: color 0.3s;
-    -o-transition: color 0.3s;
-    transition: color 0.3s;
-  }
-
-  a:hover {
-    opacity: 0.8;
-  }
-
-  ul {
-    list-style: none;
-  }
-
-  li {
-    display: inline-block;
-    padding: 0 13px;
-  }
-}
 
 .scrolled {
   padding-top: 5px;
@@ -113,19 +82,6 @@ nav {
 
   a:hover {
     color: #BE4248;
-  }
-}
-
-.alex {
-  padding: 80px;
-  background-color: $bg-alex;
-  height: 500px;
-  color: $font-color;
-
-  .avatar {
-    width: 180px;
-    border-radius: 50%;
-    margin: 70px auto 30px auto;
   }
 }
 
@@ -156,8 +112,55 @@ nav {
   display:none;
 }
 
+nav {
+  margin: 0 auto;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  padding-top: 8px;
+  transition: all .4s;
+
+  a {
+    text-decoration: none;
+    color: #E4E4E7;
+    font-weight: 400;
+    font-size: 14px;
+    -webkit-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    opacity: 0.8;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    display: inline-block;
+    padding: 0 13px;
+  }
+}
+
+.alex {
+  padding: 80px 0;
+  background-color: $bg-alex;
+  height: 500px;
+  color: $font-color;
+
+  .avatar {
+    width: 180px;
+    border-radius: 50%;
+    margin: 70px auto 30px auto;
+  }
+}
+
+
 .aboutme {
-  width: 60%;
+  width: 90%;
   margin: 0 auto;
 
   p {
@@ -324,6 +327,11 @@ footer {
 
   .container {
     max-width: 720px;
+  }
+
+  .aboutme {
+    width: 60%;
+    margin: 0 auto;
   }
 }
 
