@@ -5,8 +5,11 @@
 $bg-alex: #4A89AA;
 $font-color: #CECAC6;
 $bg-footer: #E4E4E7;
-$bg-experience: #586473;
+$bg-experience: #fff;
+$font-experience: #000;
 $link-hover: #BE4248;
+$dark-blue: #21374B;
+$grey: #E4E4E7;
 
 html {
   font-family: 'Quicksand', sans-serif;
@@ -162,14 +165,104 @@ nav {
 .aboutme {
   width: 90%;
   margin: 0 auto;
-
   p {
     margin-bottom: 20px;
   }
 }
 
+$job: 200px;
+
 .experience {
-  background-color: $bg-alex;
+  padding: 12px 0;
+  background-color: $bg-experience;
+  color: $font-experience;
+
+  .filter {
+    position: absolute;
+    left: 0;
+    height: 2px;
+    background-color: $bg-alex;
+    width: ($job * 0.4);
+    top: 0;
+  }
+}
+
+.timeline {
+  position: relative;
+  text-align: center;
+  margin-top: 50px;
+
+  .events {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 2px;
+    background-color: #E4E4E7;
+    margin: auto;
+    z-index: 1;
+
+    ol {
+      margin-top: -25px;
+    }
+
+    li {
+      list-style: none;
+      position: absolute;
+      font-size: 13px;
+
+      &:nth-child(2){
+        left: $job;
+      }
+
+      &:nth-child(3){
+        left: ($job * 2);
+      }
+
+      &:nth-child(4){
+        left: ($job * 3);
+      }
+
+      a {
+        color: $font-experience;
+
+        &:after {
+          content: "";
+          position: absolute;
+          height: 10px;
+          width: 10px;
+          background-color: #fff;
+          border: 2px solid $grey;
+          border-radius: 50%;
+          left: 40%;
+          top: 19px;
+          transition: all 0.2s ease;
+        }
+
+        &:hover {
+          &:after {
+            background-color: $bg-alex;
+            border-color: $bg-alex;
+          }
+        }
+      }
+    }
+
+    .active {
+      a {
+        color: $bg-alex;
+        font-weight: 500;
+        font-size: 14px;
+
+        &:after {
+          background-color: $bg-alex;
+          border: 2px solid $bg-alex;
+        }
+      }
+    }
+  }
+
 }
 
 footer {
@@ -230,77 +323,6 @@ footer {
 }
 
 
-// Experience
-
-// .timeline {
-//   position: relative;
-//
-//   &:before {
-//     content: "";
-//     background: #c5cae9;
-//     width: 5px;
-//     height: 95%;
-//     position: absolute;
-//     left: 50%;
-//     transform: translateX(-50%);
-//     top: 170px;
-//   }
-//
-//   .item{
-//     &:first-child {
-//       width: 60%;
-//       margin-left: 7%;
-//       margin-top: -165px;
-//     }
-//
-//     p {
-//       font-size: 13px;
-//       font-weight: 400;
-//       margin-top: 5px;
-//       margin-bottom: 5px;
-//     }
-//
-//     .description {
-//       margin-top: 12px;
-//     }
-//   }
-//
-//   .title {
-//     margin: 0;
-//   }
-//
-//   .content {
-//     position: relative;
-//     width: 45%;
-//     padding: 12px 18px;
-//     border-radius: 4px;
-//     background: #f5f5f5;
-//     box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
-//     text-align: center;
-//   }
-//
-//   .meta {
-//     text-align: right;
-//     color: rgba(0, 0, 0, .4);
-//     margin-top: 25px;
-//   }
-//
-//   .start {
-//     width: 30px;
-//     height: 30px;
-//     background: #3f51b5;
-//     border-radius: 50%;
-//     position: absolute;
-//     left: 50%;
-//     margin-top: 25px;
-//     margin-left: -15px;
-//
-//     &:first-child {
-//       top: 170px;
-//     }
-//   }
-//
-// }
 
 @media (min-width: 576px) {
   // .hide-xs {
