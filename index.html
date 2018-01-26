@@ -11,6 +11,7 @@
   </head>
   <body>
     <div class="container-fluid">
+      <a href="" id="scrollTop" class="hide"><i class="angle up big inverted icon"></i></a>
       <header>
         <nav>
           <ul>
@@ -132,13 +133,19 @@
         </div>
         <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
         <script>
-          $(function() {
+          $(document).ready(function(){
             $(document).scroll(function(){
               var $nav = $("nav");
               $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+              $('#scrollTop').toggleClass('hide', $(this).scrollTop() < 200);
+            })
+
+            $('#scrollTop').click(function(){
+              $('html, body').animate({ scrollTop: 0}, 600);
+              return false;
             })
           })
-        </script>
+          </script>
       </footer>
     </div>
   </body>
