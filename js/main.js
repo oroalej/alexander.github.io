@@ -10,12 +10,10 @@ $(document).ready(function(){
       timelineAttributes['eventWrapper'] = timelineAttributes['timeline'].children('.events-wrapper');
       timelineAttributes['lineBar'] = timelineAttributes['eventWrapper'].find('.filter');
       timelineAttributes['events'] = timelineAttributes['eventWrapper'].find('a');
-      timelineAttributes['navigations'] = timeline.children('.navigation');
-      timelineAttributes['content'] = timeline.children('.content');
+      timelineAttributes['navigations'] = timelineAttributes['timeline'].children('.navigation');
+      timelineAttributes['content'] = timelineAttributes['timeline'].find('.item');
 
       setDatePosition(timelineAttributes);
-
-
 
       timelineAttributes['navigations'].on('click', '#next', function(event){
         event.preventDefault();
@@ -31,23 +29,14 @@ $(document).ready(function(){
         event.preventDefault();
 
         var $that = $(this);
-        timelineAttributes['events'].removeClass();
 
-        timelineAttributes['events'].each(function(){
-          if(($that.text() != $(this).text()))
-            $(this).addClass('highlighted');
-          else {
-            return false;
-          }
-        });
-
-        $that.addClass('active');
 
         updateLineBar($that, timelineAttributes);
       });
     });
   }
 
+  // Set Date position spaces
   var setDatePosition = function(timelineAttributes){
     var wrapperWidth = timelineAttributes['eventWrapper'].width(),
         min = wrapperWidth/2;
@@ -58,13 +47,22 @@ $(document).ready(function(){
 
   }
 
-  var updateSlide = function(timelineAttributes){
+  // Update Counter
 
-          // console.log(timelineAttributes['timeline'].find('.active'));
-    // .each(function(){
-    //   console.log($(this))
-    //   $(this).next().addClass('active');
-    // });
+  var updateCount = function(index, element){
+    element['navigations'].find('#count').text(index + 1 + "/4");
+    updateContent(index, element);
+  }
+
+  // For Mobile devices
+  var updateSlide = function(index, timelineAttributes){
+
+  }
+
+  // Update content
+  var updateContent = function(index, timelineAttributes){
+    timelineAttributes['content'].removeClass('active');
+    timelineAttributes['content'].eq(index).addClass('active');
   }
 
   var updateLineBar = function(selectedEvent, timelineAttributes){
@@ -73,11 +71,22 @@ $(document).ready(function(){
         position = selectedEvent.offset().left,
         width = selectedEvent.width() / 2,
         TotalWidth = position + width - offset;
+
+    timelineAttributes['events'].removeClass();
+
+    timelineAttributes['events'].each(function(i){
+      if((selectedEvent.text() != $(this).text()))
+        $(this).addClass('highlighted');
+      else {
+        updateCount(i, timelineAttributes);
+        return false;
+      }
+    });
+
+    selectedEvent.addClass('active');
+
     timelineAttributes['lineBar'].css('width', TotalWidth);
-
-
   }
 
   main(experience);
-
 });

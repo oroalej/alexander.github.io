@@ -231,6 +231,10 @@ $job: 200px;
         width: 69px;
       }
 
+      &:nth-child(2){
+        width: 25px !important;
+      }
+
       span {
         height: 2px;
         width: 0;
@@ -242,7 +246,7 @@ $job: 200px;
       svg {
         height: 18px;
         width: 9px;
-        transition: padding 0.4s ease;
+        transition: padding 0.5s ease;
       }
     }
 
@@ -362,7 +366,7 @@ $job: 200px;
     overflow: hidden;
 
     .item {
-      transform: translateX(-100%);
+      transform: translateX(100%);
       display: none;
     }
 
