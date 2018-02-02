@@ -85,13 +85,6 @@ $(document).ready(function(){
     timelineAttributes['lineBar'].css('width', TotalWidth);
   }
 
-  var updateEvents = function(selectedEvent, imelineAttributes){
-
-
-
-
-  }
-
   var getCurrentIndex = function(direction, elements){
     var arrayLength = elements.length - 1,
         $position = 0;
