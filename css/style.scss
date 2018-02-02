@@ -223,7 +223,7 @@ nav {
       }
 
       &:nth-child(2){
-        width: 25px !important;
+        width: 50px !important;
       }
 
       span {
@@ -355,13 +355,39 @@ nav {
     overflow: hidden;
 
     .item {
-      display: none;
+      position: absolute;
       min-height: 366px;
-    }
+      top: 70px;
+      left: 0;
+      right: 0;
+      transform: translateX(-100%);
+      z-index: 2;
+      opacity: 0;
+      animation-duration: 0.4s;
+      animation-timing-function: ease-in-out;
+      // animation-iteration-count: infinite;
 
-    .active {
-      transform: translateX(0) !important;
-      display: block;
+      &.active {
+        transform: translateX(0);
+        position: relative;
+        opacity: 1;
+        z-index: 2;
+        top: 0;
+      }
+
+      &.enter-right, &.exit-right {
+        animation-name: enterRight;
+
+      }
+
+      &.enter-left, &.exit-left {
+        animation-name: enterLeft;
+
+      }
+
+      &.exit-left, &.exit-right {
+        animation-direction: reverse;
+  		}
     }
 
     h1 {
@@ -504,7 +530,38 @@ footer {
     max-width: 960px;
   }
 
+  .timeline {
+    width: 80%;
+
+    .events {
+      li {
+
+        &:first-child{
+          left: 80px;
+        }
+
+        &:nth-child(2){
+          left: ($job * 1.5);
+        }
+
+        &:nth-child(3){
+          left: ($job * 2.5);
+        }
+
+        &:last-child{
+          left: ($job * 3.5);
+        }
+      }
+    }
+  }
+
+  .experience {
+    .filter {
+      width: 120px;
+    }
+  }
 }
+
 
 @media (min-width: 1200px) {
   .container {
@@ -512,12 +569,93 @@ footer {
   }
 
   .timeline {
-    width: 50%
+    width: 60%;
+    margin: auto;
+
+    .events {
+      li {
+
+        &:first-child{
+          left: 100px;
+        }
+
+      }
+    }
+  }
+
+  .experience {
+    .filter {
+      width: 150px;
+    }
+  }
+
+
+  .aboutme {
+    .content {
+      width: 60%;
+    }
+  }
+}
+
+@media (min-width: 1400px){
+  .timeline {
+    width: 50%;
+
+    .events {
+      li {
+
+        &:first-child{
+          left: 150px;
+        }
+
+        &:nth-child(2){
+          left: ($job * 2);
+        }
+
+        &:nth-child(3){
+          left: ($job * 3);
+        }
+
+        &:last-child{
+          left: ($job * 4);
+        }
+      }
+    }
+  }
+
+  .experience {
+    .filter {
+      width: 190px;
+    }
   }
 
   .aboutme {
     .content {
       width: 50%;
     }
+  }
+}
+
+@keyframes enterRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes enterLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
