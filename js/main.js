@@ -26,13 +26,13 @@ $(document).ready(function(){
         updateLineBar(getCurrentIndex('prev', timelineAttributes['events']), timelineAttributes);
       });
 
-      timelineAttributes['timeline'].on('swipeleft', function(){
-        updateLineBar(getCurrentIndex('next', timelineAttributes['events']), timelineAttributes);
-      })
-
-      timelineAttributes['timeline'].on('swiperight', function(){
-        updateLineBar(getCurrentIndex('prev', timelineAttributes['events']), timelineAttributes);
-      })
+      // timelineAttributes['timeline'].on('swipeleft', function(){
+      //   updateLineBar(getCurrentIndex('next', timelineAttributes['events']), timelineAttributes);
+      // })
+      //
+      // timelineAttributes['timeline'].on('swiperight', function(){
+      //   updateLineBar(getCurrentIndex('prev', timelineAttributes['events']), timelineAttributes);
+      // })
 
       timelineAttributes['eventWrapper'].on('click', 'a', function(event){
         event.preventDefault();
