@@ -10,6 +10,7 @@ $font-experience: #000;
 $link-hover: #BE4248;
 $dark-blue: #21374B;
 $grey: #E4E4E7;
+$job: 200px;
 
 html {
   font-family: 'Quicksand', sans-serif;
@@ -59,29 +60,17 @@ h1 {
   margin-left: auto;
 }
 
-// Row and col class are copied from bootstrap
-// .row {
-//   display: -ms-flexbox;
-//   display: flex;
-//   -ms-flex-wrap: wrap;
-//       flex-wrap: wrap;
-//   margin-right: -15px;
-// }
-//
-// .col {
-//   -ms-flex-preferred-size: 0;
-//       flex-basis: 0;
-//   -ms-flex-positive: 1;
-//       flex-grow: 1;
-//   max-width: 100%;
-// }
-
 .header {
   margin-top: 0px;
 }
 
 .text-right {
-  text-align: right;
+  text-align: center;
+}
+
+.hide-xs {
+  display: none;
+  font-size: inherit !important;
 }
 
 .scrolled {
@@ -181,6 +170,7 @@ nav {
 
   .content {
     padding: 0 24px;
+    margin: 0 auto;
   }
 
   p {
@@ -188,7 +178,6 @@ nav {
   }
 }
 
-$job: 200px;
 
 .experience {
   padding: 32px 0;
@@ -200,7 +189,7 @@ $job: 200px;
     left: 0;
     height: 2px;
     background-color: $bg-alex;
-    width: ($job * 0.4);
+    width: 80px;
     top: 0;
     transition: width 0.4s ease;
   }
@@ -208,11 +197,11 @@ $job: 200px;
 
 .timeline {
   position: relative;
-  text-align: center;
-  margin-top: 50px;
+  margin: 50px 5% 0 5%;
+  overflow: hidden;
 
   .navigation {
-    width: 80%;
+    padding: 0;
     margin: 0 auto;
     text-align: center;
 
@@ -225,6 +214,8 @@ $job: 200px;
       display: inline-block;
       vertical-align: top;
       margin-right: 15px;
+      z-index: 9999;
+      background-color: transparent;
 
       &:not(#count){
         cursor: pointer;
@@ -241,12 +232,14 @@ $job: 200px;
         background-color: #000;
         margin-top: 8px;
         transition: width 0.4s ease;
+        z-index: -99;
       }
 
       svg {
         height: 18px;
         width: 9px;
         transition: padding 0.5s ease;
+        z-index: -99;
       }
     }
 
@@ -276,10 +269,8 @@ $job: 200px;
   }
   .events-wrapper {
     position: relative;
-    width: 70%;
-    margin: 0 auto;
-    overflow: hidden;
     height: 50px;
+    width: 200%;
   }
 
   .events{
@@ -300,14 +291,14 @@ $job: 200px;
       font-size: 13px;
 
       &:nth-child(2){
-        left: $job;
+        left: ($job * 1);
       }
 
       &:nth-child(3){
         left: ($job * 2);
       }
 
-      &:nth-child(4){
+      &:last-child{
         left: ($job * 3);
       }
 
@@ -361,13 +352,11 @@ $job: 200px;
   .tabs {
     padding-top: 20px;
     text-align: left;
-    width: 80%;
-    margin: auto;
     overflow: hidden;
 
     .item {
-      transform: translateX(100%);
       display: none;
+      min-height: 366px;
     }
 
     .active {
@@ -382,6 +371,9 @@ $job: 200px;
     .content {
       margin: 18px 0;
 
+      li {
+        list-style: initial;
+      }
     }
   }
 }
@@ -443,31 +435,44 @@ footer {
   }
 }
 
-
-
 @media (min-width: 576px) {
-  // .hide-xs {
-  //   display: inline-block;
-  // }
+  .hide-xs {
+    display: inline;
+  }
 
   .container {
     max-width: 540px;
   }
 
-  .timeline {
-    .events-wrapper{
-      width: 70%;
-    }
-
-    .tabs {
-      width: 70%;
+  .aboutme {
+    .content {
+      width: 80%;
     }
   }
 
+  .timeline {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 
+    .events-wrapper{
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .tabs {
+      .item {
+        min-height: 266px;
+      }
+    }
+  }
 }
 
 @media (min-width: 768px) {
+  .text-right {
+    text-align: right;
+  }
+
   nav {
     text-align: right;
 
@@ -484,20 +489,12 @@ footer {
     max-width: 720px;
   }
 
-  .aboutme {
-    .content {
-      width: 60%;
-      margin: 0 auto;
-    }
-  }
 
   .timeline {
-    .events-wrapper {
-      width: 50%;
-    }
-
     .tabs {
-      width: 50%;
+      .item {
+        min-height: 286px;
+      }
     }
   }
 }
@@ -506,10 +503,21 @@ footer {
   .container {
     max-width: 960px;
   }
+
 }
 
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
+  }
+
+  .timeline {
+    width: 50%
+  }
+
+  .aboutme {
+    .content {
+      width: 50%;
+    }
   }
 }

@@ -1,11 +1,12 @@
 $(document).ready(function(){
   var experience = $('.experience'),
-      minEventDistance = 200;
+      CurrentIndex = 0;
 
   var main = function(experience){
     experience.each(function(){
       var timeline = $(this),
           timelineAttributes = {};
+
       timelineAttributes['timeline'] = timeline.find('.timeline');
       timelineAttributes['eventWrapper'] = timelineAttributes['timeline'].children('.events-wrapper');
       timelineAttributes['lineBar'] = timelineAttributes['eventWrapper'].find('.filter');
@@ -13,38 +14,34 @@ $(document).ready(function(){
       timelineAttributes['navigations'] = timelineAttributes['timeline'].children('.navigation');
       timelineAttributes['content'] = timelineAttributes['timeline'].find('.item');
 
-      setDatePosition(timelineAttributes);
-
-      timelineAttributes['navigations'].on('click', '#next', function(event){
+      timelineAttributes['navigations'].on('click', '.next', function(event){
         event.preventDefault();
-        updateSlide(timelineAttributes);
+
+        updateLineBar(getCurrentIndex('next', timelineAttributes['events']), timelineAttributes);
       });
 
-      timelineAttributes['navigations'].on('click', '#prev', function(event){
+      timelineAttributes['navigations'].on('click', '.prev', function(event){
         event.preventDefault();
-        updateSlide(timelineAttributes);
+
+        updateLineBar(getCurrentIndex('prev', timelineAttributes['events']), timelineAttributes);
       });
+
+      timelineAttributes['timeline'].on('swipeleft', function(){
+        updateLineBar(getCurrentIndex('next', timelineAttributes['events']), timelineAttributes);
+      })
+
+      timelineAttributes['timeline'].on('swiperight', function(){
+        updateLineBar(getCurrentIndex('prev', timelineAttributes['events']), timelineAttributes);
+      })
 
       timelineAttributes['eventWrapper'].on('click', 'a', function(event){
         event.preventDefault();
-
         var $that = $(this);
-
 
         updateLineBar($that, timelineAttributes);
       });
+
     });
-  }
-
-  // Set Date position spaces
-  var setDatePosition = function(timelineAttributes){
-    var wrapperWidth = timelineAttributes['eventWrapper'].width(),
-        min = wrapperWidth/2;
-    for (i = 0; i < timelineAttributes['events'].length; i++){
-      // if(wrapperWidth > 223)
-      // timelineAttributes['events'].eq(i).css('left', min+"px");
-    }
-
   }
 
   // Update Counter
@@ -66,7 +63,6 @@ $(document).ready(function(){
   }
 
   var updateLineBar = function(selectedEvent, timelineAttributes){
-    var zz = timelineAttributes['eventWrapper'].offset();
     var offset = timelineAttributes['eventWrapper'].offset().left,
         position = selectedEvent.offset().left,
         width = selectedEvent.width() / 2,
@@ -78,6 +74,7 @@ $(document).ready(function(){
       if((selectedEvent.text() != $(this).text()))
         $(this).addClass('highlighted');
       else {
+        CurrentIndex = i;
         updateCount(i, timelineAttributes);
         return false;
       }
@@ -86,6 +83,26 @@ $(document).ready(function(){
     selectedEvent.addClass('active');
 
     timelineAttributes['lineBar'].css('width', TotalWidth);
+  }
+
+  var updateEvents = function(selectedEvent, imelineAttributes){
+
+
+
+
+  }
+
+  var getCurrentIndex = function(direction, elements){
+    var arrayLength = elements.length - 1,
+        $position = 0;
+    if(direction == 'next'){
+      $position = (arrayLength < (CurrentIndex + 1) ? 0 : CurrentIndex + 1)
+      CurrentIndex++;
+    } else if(direction == 'prev'){
+      $position = (0 <= (CurrentIndex - 1) ? CurrentIndex - 1 : arrayLength);
+      CurrentIndex--;
+    }
+    return elements.eq($position);
   }
 
   main(experience);
