@@ -78,7 +78,7 @@ h1 {
   background-color: #fff !important;
   padding-bottom: 5px;
   box-shadow: 0 0 12px rgba(0,0,0,0.25);
-  z-index: 2;
+  z-index: 99;
 
   a {
     color: #21374B;
@@ -123,6 +123,7 @@ nav {
   width: 100%;
   padding-top: 8px;
   transition: all .4s;
+  z-index: 999;
 
   a {
     text-decoration: none;
@@ -189,9 +190,9 @@ nav {
     left: 0;
     height: 2px;
     background-color: $bg-alex;
-    width: 80px;
     top: 0;
-    transition: width 0.4s ease;
+    z-index: -1;
+    // transition: width 0.4s ease;
   }
 }
 
@@ -270,10 +271,9 @@ nav {
   .events-wrapper {
     position: relative;
     height: 50px;
-    width: 200%;
   }
 
-  .events{
+  .events {
     position: absolute;
     top: 25px;
     left: 0;
@@ -289,21 +289,13 @@ nav {
     li {
       position: absolute;
       font-size: 13px;
-
-      &:nth-child(2){
-        left: ($job * 1);
-      }
-
-      &:nth-child(3){
-        left: ($job * 2);
-      }
-
-      &:last-child{
-        left: ($job * 3);
-      }
+      left: 50%;
+      transform: translateX(-50%);
 
       a {
         color: $font-experience;
+        opacity: 0;
+        z-index: -1;
 
         &:after {
           content: "";
@@ -334,6 +326,8 @@ nav {
       color: $bg-alex;
       font-weight: 500;
       font-size: 14px;
+      opacity: 1;
+      z-index: 999;
 
       &:after {
         background-color: $bg-alex;
@@ -366,6 +360,7 @@ nav {
       animation-duration: 0.4s;
       animation-timing-function: ease-in-out;
       // animation-iteration-count: infinite;
+      min-height: 510px;
 
       &.active {
         transform: translateX(0);
@@ -486,10 +481,43 @@ footer {
       margin: 0 auto;
     }
 
+    .events {
+      li {
+        transform: translateX(0);
+
+        &:first-child{
+          left: 40px;
+        }
+
+        &:nth-child(2){
+          left: ($job * 1);
+        }
+
+        &:nth-child(3){
+          left: ($job * 1.8);
+        }
+
+        &:last-child{
+          left: ($job * 2.6);
+        }
+
+        a {
+          opacity: 1;
+          z-index: 1;
+        }
+      }
+    }
+
     .tabs {
       .item {
-        min-height: 266px;
+        min-height: 321px;
       }
+    }
+  }
+
+  .experience {
+    .filter {
+      width: 80px;
     }
   }
 }
@@ -515,8 +543,9 @@ footer {
     max-width: 720px;
   }
 
-
   .timeline {
+    max-width: 650px;
+
     .tabs {
       .item {
         min-height: 286px;
@@ -525,13 +554,20 @@ footer {
   }
 }
 
+
+@media (min-width: 830px) {
+  .timeline {
+    max-width: 800px;
+  }
+}
+
+
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
   }
 
   .timeline {
-    width: 80%;
 
     .events {
       li {
@@ -568,56 +604,33 @@ footer {
     max-width: 1140px;
   }
 
-  .timeline {
-    width: 60%;
-    margin: auto;
-
-    .events {
-      li {
-
-        &:first-child{
-          left: 100px;
-        }
-
-      }
-    }
-  }
-
-  .experience {
-    .filter {
-      width: 150px;
-    }
-  }
-
-
   .aboutme {
     .content {
-      width: 60%;
+      width: 950px;
     }
   }
-}
 
-@media (min-width: 1400px){
   .timeline {
-    width: 50%;
+    width: 950px;
+    max-width: 950px !important;
 
     .events {
       li {
 
         &:first-child{
-          left: 150px;
+          left: 120px;
         }
 
         &:nth-child(2){
-          left: ($job * 2);
+          left: ($job * 1.7);
         }
 
         &:nth-child(3){
-          left: ($job * 3);
+          left: ($job * 2.7);
         }
 
         &:last-child{
-          left: ($job * 4);
+          left: ($job * 3.7);
         }
       }
     }
@@ -625,16 +638,11 @@ footer {
 
   .experience {
     .filter {
-      width: 190px;
-    }
-  }
-
-  .aboutme {
-    .content {
-      width: 50%;
+      width: 160px;
     }
   }
 }
+
 
 @keyframes enterRight {
   0% {

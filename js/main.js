@@ -15,6 +15,7 @@ $(document).ready(function(){
       timelineAttributes['navigations'] = timelineAttributes['timeline'].children('.navigation');
       timelineAttributes['content'] = timelineAttributes['timeline'].find('.item');
 
+
       timelineAttributes['navigations'].on('click', '.next', function(event){
         event.preventDefault();
 
@@ -55,17 +56,23 @@ $(document).ready(function(){
         }
       });
 
+      $(window).resize(function(){
+        updateLineBar(timelineAttributes['events'].eq(currentIndex), timelineAttributes);
+      })
+
+      if($(window).width() <= 576) {
+        updateLineBar(timelineAttributes['events'].eq(currentIndex), timelineAttributes);
+      }
     });
   }
 
   // Update Counter
-
   var updateCount = function(index, element){
     element.find('#count').text(index + 1 + " / 4");
   }
 
   // For Mobile devices
-  var updateSlide = function(index, timelineAttributes){
+  var setDatePosition = function(index, timelineAttributes){
 
   }
 
@@ -83,9 +90,6 @@ $(document).ready(function(){
     element.eq(prevIndex).attr('class', classExit).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
 			element.removeClass('enter-left enter-right exit-right exit-left');
 		});
-
-
-
   }
 
   var updateLineBar = function(selectedEvent, timelineAttributes){
@@ -106,7 +110,6 @@ $(document).ready(function(){
     });
 
     selectedEvent.addClass('active');
-
     timelineAttributes['lineBar'].css('width', TotalWidth);
   }
 
