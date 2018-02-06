@@ -82,7 +82,7 @@ $(document).ready(function(){
   // Update content
   var updateContent = function(element, direction){
     if(direction == 'next'){
-      var classEnter = "active enter-left",
+      var classEnter = "active enter-right",
           classExit = "item exit-left";
     } else if(direction == 'prev'){
       var classEnter = "active enter-left",
