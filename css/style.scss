@@ -54,8 +54,6 @@ h1 {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -141,7 +139,7 @@ nav {
 
   ul {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
   }
 
   li {
@@ -164,10 +162,10 @@ nav {
 }
 
 
-.aboutme {
+#aboutme {
   width: inherit;
   background-color: $bg-footer;
-  padding: 32px 0px;
+  padding: 80px 0px;
 
   .content {
     padding: 0 24px;
@@ -180,8 +178,8 @@ nav {
 }
 
 
-.experience {
-  padding: 32px 0;
+#experience {
+  padding: 80px 0;
   background-color: $bg-experience;
   color: $font-experience;
 
@@ -348,7 +346,7 @@ nav {
     padding-top: 20px;
     text-align: left;
     overflow: hidden;
-    padding: 0 5%;
+
 
     .item {
       position: absolute;
@@ -363,6 +361,8 @@ nav {
       animation-timing-function: ease-in-out;
       // animation-iteration-count: infinite;
       min-height: 510px;
+      margin-left: 5%;
+      margin-right: 5%;
 
       &.active {
         transform: translateX(0);
@@ -467,7 +467,7 @@ footer {
     max-width: 540px;
   }
 
-  .aboutme {
+  #aboutme {
     .content {
       width: 80%;
     }
@@ -511,14 +511,15 @@ footer {
     }
 
     .tabs {
-      padding: 0;
       .item {
         min-height: 321px;
+        margin-left: 0;
+        margin-right: 0;
       }
     }
   }
 
-  .experience {
+  #experience {
     .filter {
       width: 80px;
     }
@@ -594,7 +595,7 @@ footer {
     }
   }
 
-  .experience {
+  #experience {
     .filter {
       width: 120px;
     }
@@ -607,7 +608,7 @@ footer {
     max-width: 1140px;
   }
 
-  .aboutme {
+  #aboutme {
     .content {
       width: 950px;
     }
@@ -639,7 +640,7 @@ footer {
     }
   }
 
-  .experience {
+  #experience {
     .filter {
       width: 160px;
     }

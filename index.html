@@ -13,7 +13,7 @@
     <div class="container-fluid">
       <a href="" id="scrollTop" class="hide"><i class="angle up big inverted icon"></i></a>
       <header>
-        <nav>
+        <nav id="main-nav">
           <div class="container">
             <ul>
               <li><a href="#aboutme">About Me</a> </li>
@@ -42,14 +42,14 @@
           </div>
         </div>
       </header>
-      <section class="aboutme">
+      <section id="aboutme">
           <h1 class="header">About Me</h1>
           <div class="content">
             <p>I am an aspiring web developer and a technophile.</p>
             <p>In terms of web development, I am interested in creating backend applications. By far, I have worked with languages and frameworks such as PHP, Laravel, Codeigniter, Javascript, JQuery, Angularjs, and Json, but I am willing to learn new languages or frameworks.</p>
           </div>
       </section>
-      <section class="experience">
+      <section id="experience">
           <h1 class="header">My Experience</h1>
           <div class="timeline">
           <div class="events-wrapper">
@@ -149,7 +149,7 @@
 
         </div>
       </section>
-      <footer>
+      <footer id="contact">
         <h1 class="header">Hire Me</h1>
         <p>Let's work together!</p>
         <h3>Contacts</h3>
@@ -172,20 +172,6 @@
         <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
         <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        <script>
-          $(document).ready(function(){
-            $(document).scroll(function(){
-              var $nav = $("nav");
-              $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-              $('#scrollTop').toggleClass('hide', $(this).scrollTop() < 200);
-            })
-
-            $('#scrollTop').click(function(){
-              $('html, body').animate({ scrollTop: 0}, 600);
-              return false;
-            });
-          })
-          </script>
       </footer>
     </div>
   </body>

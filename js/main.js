@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var experience = $('.experience'),
+  var experience = $('#experience'),
       currentIndex = 0,
       prevIndex = 3;
 
@@ -130,4 +130,23 @@ $(document).ready(function(){
   }
 
   main(experience);
+
+  $("#main-nav").find("a").click(function(e) {
+      e.preventDefault();
+      var section = $(this).attr("href");
+      $("html, body").animate({
+          scrollTop: $(section).offset().top
+      });
+  });
+
+  $(document).scroll(function(){
+    var $nav = $("nav");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+    $('#scrollTop').toggleClass('hide', $(this).scrollTop() < 200);
+  })
+
+  $('#scrollTop').click(function(){
+    $('html, body').animate({ scrollTop: 0}, 600);
+    return false;
+  });
 });
