@@ -37,7 +37,7 @@ $(document).ready(function(){
       $('.content').on('swipeleft', function(){
         updateLineBar(getCurrentIndex('next', timelineAttributes['events']), timelineAttributes);
         updateCount(currentIndex, timelineAttributes['navigations']);
-        updateContent(timelineAttributes['content'], 'prev');
+        updateContent(timelineAttributes['content'], 'next');
       })
 
       $('.timeline').on('swiperight', function(){
