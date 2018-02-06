@@ -198,7 +198,7 @@ nav {
 
 .timeline {
   position: relative;
-  margin: 50px 5% 0 5%;
+  margin-top: 50px;
   overflow: hidden;
 
   .navigation {
@@ -271,6 +271,7 @@ nav {
   .events-wrapper {
     position: relative;
     height: 50px;
+    margin: 0 5%;
   }
 
   .events {
@@ -347,6 +348,7 @@ nav {
     padding-top: 20px;
     text-align: left;
     overflow: hidden;
+    padding: 0 5%;
 
     .item {
       position: absolute;
@@ -509,6 +511,7 @@ footer {
     }
 
     .tabs {
+      padding: 0;
       .item {
         min-height: 321px;
       }

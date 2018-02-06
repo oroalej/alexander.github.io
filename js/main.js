@@ -34,14 +34,17 @@ $(document).ready(function(){
         updateContent(timelineAttributes['content'], 'prev');
       });
 
-      // $('.timeline').on('swipeleft', function(){
-      //   updateLineBar(getCurrentIndex('next', timelineAttributes['events']), timelineAttributes);
-      //
-      // })
-      //
-      // $('.timeline').on('swiperight', function(){
-      //   updateLineBar(getCurrentIndex('prev', timelineAttributes['events']), timelineAttributes);
-      // })
+      $('.content').on('swipeleft', function(){
+        updateLineBar(getCurrentIndex('next', timelineAttributes['events']), timelineAttributes);
+        updateCount(currentIndex, timelineAttributes['navigations']);
+        updateContent(timelineAttributes['content'], 'prev');
+      })
+
+      $('.timeline').on('swiperight', function(){
+        updateLineBar(getCurrentIndex('prev', timelineAttributes['events']), timelineAttributes);
+        updateCount(currentIndex, timelineAttributes['navigations']);
+        updateContent(timelineAttributes['content'], 'prev');
+      })
 
       timelineAttributes['eventWrapper'].on('click', 'a', function(event){
         event.preventDefault();
@@ -79,7 +82,7 @@ $(document).ready(function(){
   // Update content
   var updateContent = function(element, direction){
     if(direction == 'next'){
-      var classEnter = "active enter-right",
+      var classEnter = "active enter-left",
           classExit = "item exit-left";
     } else if(direction == 'prev'){
       var classEnter = "active enter-left",
