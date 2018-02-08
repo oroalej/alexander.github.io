@@ -135,7 +135,6 @@ $(document).ready(function(){
   $("#main-nav").find("a").click(function(e) {
       e.preventDefault();
       var section = $(this).attr("href");
-      console.log($(section).offset().top-62)
       $("html, body").animate({
           scrollTop: $(section).offset().top-62
       });
