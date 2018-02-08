@@ -423,7 +423,6 @@ nav {
       display: block;
       vertical-align: top;
       padding: 8px 0 8px 0;
-      // width: 300px;
 
       img {
         transition: width 0.4s ease;
@@ -567,40 +566,20 @@ footer {
       width: 80%;
     }
   }
+
   #sample {
-    background-color: #586473;
-    color: #fff;
-    position: relative;
-    width: 100%;
 
     .projects {
       height: 400px;
-      overflow-y: hidden;
-      padding: 0;
-      list-style-type: none;
-      margin: auto;
       width: 80%;
 
       .list {
         display: inline-block;
         padding: 8px 12px;
-        vertical-align: top;
         width: 28.5%;
 
         img {
-          transition: width 0.4s ease;
-          width: 100%;
           cursor: pointer;
-        }
-
-        &:hover {
-          img {
-            box-shadow: 0 8px 6px -6px rgba(0,0,0,0.25);
-          }
-        }
-
-        &.active {
-          display: block;
         }
       }
     }

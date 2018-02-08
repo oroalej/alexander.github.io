@@ -16,6 +16,7 @@ $(document).ready(function(){
       timelineAttributes['navigations'] = timelineAttributes['timeline'].children('.navigation');
       timelineAttributes['content'] = timelineAttributes['timeline'].find('.item');
 
+      setDivHeight(timelineAttributes['content']);
 
       timelineAttributes['navigations'].on('click', '.next', function(event){
         event.preventDefault();
@@ -62,6 +63,7 @@ $(document).ready(function(){
 
       $(window).resize(function(){
         updateLineBar(timelineAttributes['events'].eq(currentIndex), timelineAttributes);
+        setDivHeight(timelineAttributes['content']);
       })
 
       if($(window).width() <= 576) {
@@ -76,7 +78,17 @@ $(document).ready(function(){
   }
 
   // For Mobile devices
-  var setDatePosition = function(index, timelineAttributes){
+  var setDivHeight = function(element){
+    var maxHeight = 0;
+    element.each(function(){
+      $(this).css('height', 'auto');
+      if(maxHeight < $(this).height())
+        maxHeight = $(this).height();
+    })
+
+    element.each(function(){
+      $(this).css('height', maxHeight);
+    })
 
   }
 
@@ -152,7 +164,6 @@ $(document).ready(function(){
   });
 
 
-
   var modal = function(modalAttritubes){
     var modalAttritubes = {};
 
@@ -175,14 +186,15 @@ $(document).ready(function(){
       $('body').on('click', '.dimmable', function(){
         updateModal(modalAttritubes, null);
         setHeight(modalAttritubes['image'], modalAttritubes['modal']);
-
       });
     }
 
-      $(window).resize(function(){
-        if(modalAttritubes['modal'].hasClass('active'))
-          setHeight(modalAttritubes['image'], modalAttritubes['modal']);
-      });
+    $(window).resize(function(){
+      if(modalAttritubes['modal'].hasClass('active')){
+        console.log('sasad')
+        setHeight(modalAttritubes['image'], modalAttritubes['modal']);
+      }
+    });
   }
 
   var setHeight = function(element, modal){
