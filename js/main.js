@@ -1,7 +1,8 @@
 $(document).ready(function(){
   var experience = $('#experience'),
       currentIndex = 0,
-      prevIndex = 3;
+      prevIndex = 3,
+      body = $('body');
 
   var main = function(experience){
     experience.each(function(){
@@ -134,8 +135,9 @@ $(document).ready(function(){
   $("#main-nav").find("a").click(function(e) {
       e.preventDefault();
       var section = $(this).attr("href");
+      console.log($(section).offset().top-62)
       $("html, body").animate({
-          scrollTop: $(section).offset().top
+          scrollTop: $(section).offset().top-62
       });
   });
 
@@ -149,4 +151,55 @@ $(document).ready(function(){
     $('html, body').animate({ scrollTop: 0}, 600);
     return false;
   });
+
+
+
+  var modal = function(modalAttritubes){
+    var modalAttritubes = {};
+
+
+    modalAttritubes['body'] = $('body'),
+    modalAttritubes['dimmable'] = modalAttritubes['body'].children('.dimmable'),
+    modalAttritubes['modal'] = body.find('.modal');
+
+    $('#sample').on('click', 'img', function(){
+      var target = $(this).data('target');
+      modalAttritubes['image'] = modalAttritubes['modal'].find('[data-name="' + target + '"]');
+
+      updateModal(modalAttritubes, 'active');
+      setHeight(modalAttritubes['image'], modalAttritubes['modal']);
+
+    });
+
+    $('body').on('click', '.dimmable', function(){
+      updateModal(modalAttritubes, null);
+      setHeight(modalAttritubes['image'], modalAttritubes['modal']);
+
+    });
+
+    $(window).resize(function(){
+      if(modalAttritubes['modal'].hasClass('active'))
+        setHeight(modalAttritubes['image'], modalAttritubes['modal']);
+    });
+  }
+
+  var setHeight = function(element, modal){
+    // If the height of the modal is higher than the screen, get the screen height.
+    var windowHeight = $(window).height() * 0.85,
+        imageHeight = element.height(),
+        modalHeight = (imageHeight > windowHeight ? windowHeight: imageHeight);
+
+    modal.css('height', modalHeight);
+  }
+
+  var updateModal = function(element, status){
+    $.each(element, function(index){
+      if(status == 'active')
+        element[index].addClass('active');
+      else
+        element[index].removeClass('active');
+    });
+  }
+
+  modal();
 });

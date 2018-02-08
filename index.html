@@ -6,10 +6,12 @@
     <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="css/button.min.css">
     <link rel="stylesheet" href="css/icon.min.css">
+    <!-- <link rel="stylesheet" href="css/modal.min.css"> -->
     <link rel="stylesheet" href="css/custom.css">
     <title>Alexander Jeam Oro</title>
   </head>
   <body>
+    <div class="dimmable"></div>
     <div class="container-fluid">
       <a href="" id="scrollTop" class="hide"><i class="angle up big inverted icon"></i></a>
       <header>
@@ -19,6 +21,7 @@
               <li><a href="#aboutme">About Me</a> </li>
               <!-- <li> <a href="#education">Education</a> </li> -->
               <li> <a href="#experience">Experience</a> </li>
+              <li class="hide-xs"> <a href="#sample">Projects</a> </li>
               <li> <a href="#contact">Contact</a> </li>
             </ul>
           </div>
@@ -106,9 +109,6 @@
                   <li>Updated website designs and managed database</li>
                 </ul>
                 <br>
-                <div class="text-right">
-                  <button class="ui basic button">Sample Work</button>
-                </div>
               </div>
             </div>
             <div class="item">
@@ -124,9 +124,6 @@
                   <li>Helped develop the version 2 of myADNU - (Ateneo de Naga University’s online community portal)</li>
                 </ul>
                 <br>
-                <div class="text-right">
-                  <button class="ui basic button">Sample Work</button>
-                </div>
               </div>
             </div>
           </div>
@@ -149,6 +146,27 @@
 
         </div>
       </section>
+
+      <section id="sample">
+        <h1 class="header">Sample Works</h1>
+        <div class="projects">
+          <div class="list active">
+            <img data-target="fortress" src="img/Fortress_Fencing_index.jpg" alt="">
+          </div>
+          <div class="list">
+            <img data-target="ifp" src="img/ifp_home_login.jpg" alt="">
+          </div>
+          <div class="list">
+            <img data-target="myadnu" src="img/myadnu v2.jpg" alt="">
+          </div>
+        </div>
+      </section>
+      <div class="modal">
+        <img data-name="fortress" src="img/Fortress_Fencing_index.jpg" alt="">
+        <img data-name="ifp" src="img/ifp_home_login.jpg" alt="">
+        <img data-name="myadnu" src="img/myadnu v2.jpg" alt="">
+
+      </div>
       <footer id="contact">
         <h1 class="header">Hire Me</h1>
         <p>Let's work together!</p>
@@ -169,7 +187,9 @@
             <i class="large github icon"></i>
           </a>
         </div>
+
         <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+        <!-- <script type="text/javascript" src="js/modal.min.js"></script> -->
         <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
       </footer>

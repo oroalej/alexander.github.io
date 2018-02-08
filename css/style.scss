@@ -19,6 +19,10 @@ html {
 
 body {
   margin: 0;
+
+  &.active {
+    overflow: hidden;
+  }
 }
 
 h1, h2, h3, h4 {
@@ -46,6 +50,10 @@ h1 {
   }
 }
 
+section {
+  padding: 62px 0px
+}
+
 .container-fluid {
   width: 100%;
   margin-right: auto;
@@ -60,10 +68,6 @@ h1 {
 
 .header {
   margin-top: 0px;
-}
-
-.text-right {
-  text-align: center;
 }
 
 .hide-xs {
@@ -99,7 +103,7 @@ h1 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   opacity: 0.7;
   transition: opacity 0.4s ease-out;
-
+  z-index: 999;
   i {
     margin: 7px 0 0 0 !important;
   }
@@ -165,7 +169,7 @@ nav {
 #aboutme {
   width: inherit;
   background-color: $bg-footer;
-  padding: 80px 0px;
+  // padding: 62px 0px;
 
   .content {
     padding: 0 24px;
@@ -179,7 +183,7 @@ nav {
 
 
 #experience {
-  padding: 80px 0;
+  // padding: 62px 0;
   background-color: $bg-experience;
   color: $font-experience;
 
@@ -193,6 +197,8 @@ nav {
     // transition: width 0.4s ease;
   }
 }
+
+
 
 .timeline {
   position: relative;
@@ -346,11 +352,12 @@ nav {
     padding-top: 20px;
     text-align: left;
     overflow: hidden;
-
+    margin-left: 5%;
+    margin-right: 5%;
 
     .item {
       position: absolute;
-      min-height: 366px;
+      width: 100%;
       top: 70px;
       left: 0;
       right: 0;
@@ -360,9 +367,6 @@ nav {
       animation-duration: 0.4s;
       animation-timing-function: ease-in-out;
       // animation-iteration-count: infinite;
-      min-height: 510px;
-      margin-left: 5%;
-      margin-right: 5%;
 
       &.active {
         transform: translateX(0);
@@ -370,6 +374,7 @@ nav {
         opacity: 1;
         z-index: 2;
         top: 0;
+        width: 100%;
       }
 
       &.enter-right, &.exit-right {
@@ -398,6 +403,89 @@ nav {
         list-style: initial;
       }
     }
+  }
+}
+
+#sample {
+  background-color: #586473;
+  color: #fff;
+  position: relative;
+  width: 100%;
+
+  .projects {
+    height: 300px;
+    overflow-y: hidden;
+    padding: 0;
+    list-style-type: none;
+    margin: auto;
+    width: 90%;
+
+    .list {
+      display: none;
+      vertical-align: top;
+      // padding: 8px 5%;
+      // width: 300px;
+
+      img {
+        transition: width 0.4s ease;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      &:hover {
+        img {
+          box-shadow: 0 8px 6px -6px rgba(0,0,0,0.25);
+        }
+      }
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+.dimmable {
+
+  &.active {
+    position: fixed;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+    z-index: 9999;
+    overflow: hidden;
+  }
+}
+
+.modal {
+  position:fixed;
+  display: none;
+  z-index: 10001;
+  background: #FFFFFF;
+  right: 5%;
+  left: 5%;
+  top: 5%;
+  bottom: 5%;
+  overflow: hidden;
+  padding: 10px;
+  overflow-y: scroll;
+  // height: 200px;
+
+  img {
+    width: 100%;
+    display: none;
+    transition: all 0.4s ease-in-out;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &.active {
+    display: block;
   }
 }
 
@@ -459,6 +547,14 @@ footer {
 }
 
 @media (min-width: 576px) {
+
+  .modal {
+    left: 50%;
+    right: 0;
+    transform: translateX(-50%);
+    padding: 20px;
+  }
+
   .hide-xs {
     display: inline;
   }
@@ -470,6 +566,44 @@ footer {
   #aboutme {
     .content {
       width: 80%;
+    }
+  }
+  #sample {
+    background-color: #586473;
+    color: #fff;
+    position: relative;
+    width: 100%;
+
+    .projects {
+      height: 400px;
+      overflow-y: hidden;
+      padding: 0;
+      list-style-type: none;
+      margin: auto;
+      width: 80%;
+
+      .list {
+        display: inline-block;
+        padding: 8px 12px;
+        vertical-align: top;
+        width: 28.5%;
+
+        img {
+          transition: width 0.4s ease;
+          width: 100%;
+          cursor: pointer;
+        }
+
+        &:hover {
+          img {
+            box-shadow: 0 8px 6px -6px rgba(0,0,0,0.25);
+          }
+        }
+
+        &.active {
+          display: block;
+        }
+      }
     }
   }
 
@@ -527,10 +661,6 @@ footer {
 }
 
 @media (min-width: 768px) {
-  .text-right {
-    text-align: right;
-  }
-
   nav {
     text-align: right;
 
@@ -558,13 +688,11 @@ footer {
   }
 }
 
-
 @media (min-width: 830px) {
   .timeline {
     max-width: 800px;
   }
 }
-
 
 @media (min-width: 992px) {
   .container {
@@ -601,7 +729,6 @@ footer {
     }
   }
 }
-
 
 @media (min-width: 1200px) {
   .container {
@@ -640,6 +767,12 @@ footer {
     }
   }
 
+  #sample {
+    .works {
+      width: 950px;
+    }
+  }
+
   #experience {
     .filter {
       width: 160px;
@@ -647,6 +780,11 @@ footer {
   }
 }
 
+// @media(min-height: 900px){
+//   .modal {
+//     bottom: auto;
+//   }
+// }
 
 @keyframes enterRight {
   0% {
