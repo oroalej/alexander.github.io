@@ -413,7 +413,6 @@ nav {
   width: 100%;
 
   .projects {
-    // height: 300px;
     overflow-y: hidden;
     padding: 0;
     list-style-type: none;
@@ -421,15 +420,15 @@ nav {
     width: 90%;
 
     .list {
-      display: none;
+      display: block;
       vertical-align: top;
-      // padding: 8px 5%;
+      padding: 8px 0 8px 0;
       // width: 300px;
 
       img {
         transition: width 0.4s ease;
         width: 100%;
-        cursor: pointer;
+        cursor: default;
       }
 
       &:hover {
@@ -438,9 +437,9 @@ nav {
         }
       }
 
-      &.active {
-        display: block;
-      }
+      // &.active {
+      //   display: block;
+      // }
     }
   }
 }

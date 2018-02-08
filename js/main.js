@@ -161,25 +161,28 @@ $(document).ready(function(){
     modalAttritubes['dimmable'] = modalAttritubes['body'].children('.dimmable'),
     modalAttritubes['modal'] = body.find('.modal');
 
-    $('#sample').on('click', 'img', function(){
-      var target = $(this).data('target');
-      modalAttritubes['image'] = modalAttritubes['modal'].find('[data-name="' + target + '"]');
+    if($(window).width() > 575){
 
-      updateModal(modalAttritubes, 'active');
-      setHeight(modalAttritubes['image'], modalAttritubes['modal']);
+      $('#sample').on('click', 'img', function(){
+        var target = $(this).data('target');
+        modalAttritubes['image'] = modalAttritubes['modal'].find('[data-name="' + target + '"]');
 
-    });
-
-    $('body').on('click', '.dimmable', function(){
-      updateModal(modalAttritubes, null);
-      setHeight(modalAttritubes['image'], modalAttritubes['modal']);
-
-    });
-
-    $(window).resize(function(){
-      if(modalAttritubes['modal'].hasClass('active'))
+        updateModal(modalAttritubes, 'active');
         setHeight(modalAttritubes['image'], modalAttritubes['modal']);
-    });
+
+      });
+
+      $('body').on('click', '.dimmable', function(){
+        updateModal(modalAttritubes, null);
+        setHeight(modalAttritubes['image'], modalAttritubes['modal']);
+
+      });
+    }
+
+      $(window).resize(function(){
+        if(modalAttritubes['modal'].hasClass('active'))
+          setHeight(modalAttritubes['image'], modalAttritubes['modal']);
+      });
   }
 
   var setHeight = function(element, modal){
