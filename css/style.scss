@@ -364,16 +364,17 @@ nav {
     padding-top: 20px;
     text-align: left;
     overflow: hidden;
-    margin-left: 5%;
+    // margin-left: 5%;
     margin-right: 5%;
 
     .item {
       position: absolute;
-      width: 100%;
+      width: 90%;
       top: 70px;
-      left: 0;
+      left: 5%;
       right: 0;
       transform: translateX(-100%);
+      // transform: translateX(0);
       z-index: 2;
       opacity: 0;
       animation-duration: 0.4s;
@@ -386,7 +387,6 @@ nav {
         opacity: 1;
         z-index: 2;
         top: 0;
-        width: 100%;
       }
 
       &.enter-right, &.exit-right {
