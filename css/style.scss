@@ -162,19 +162,16 @@ nav {
     border-radius: 50%;
     margin: 70px auto 30px auto;
   }
-
-  z-index: 9;
 }
 
 #particles-js {
-  background-image: url('');
   background-color: $bg-alex;
-  background-size: cover;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
+  top: 0;
+  bottom: 0;
   height: 600px;
-
   z-index: -1;
 }
 
@@ -440,6 +437,7 @@ nav {
         transition: width 0.4s ease;
         width: 100%;
         cursor: default;
+
       }
 
       &:hover {
@@ -447,10 +445,6 @@ nav {
           box-shadow: 0 8px 6px -6px rgba(0,0,0,0.25);
         }
       }
-
-      // &.active {
-      //   display: block;
-      // }
     }
   }
 }
