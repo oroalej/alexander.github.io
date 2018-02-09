@@ -154,7 +154,7 @@ nav {
 
 .alex {
   padding: 80px 0;
-  height: 500px;
+  // height: 500px;
   color: $font-color;
 
   .avatar {
@@ -167,14 +167,14 @@ nav {
 }
 
 #particles-js {
+  background-image: url('');
   background-color: $bg-alex;
-  // background-image: url('');
   background-size: cover;
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  top: 0;
+  height: 600px;
+
   z-index: -1;
 }
 
