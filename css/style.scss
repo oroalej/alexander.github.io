@@ -154,7 +154,6 @@ nav {
 
 .alex {
   padding: 80px 0;
-  background-color: $bg-alex;
   height: 500px;
   color: $font-color;
 
@@ -163,8 +162,21 @@ nav {
     border-radius: 50%;
     margin: 70px auto 30px auto;
   }
+
+  z-index: 9;
 }
 
+#particles-js {
+  background-color: $bg-alex;
+  background-image: url('');
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+}
 
 #aboutme {
   width: inherit;
